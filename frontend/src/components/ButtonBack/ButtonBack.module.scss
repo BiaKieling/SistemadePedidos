@@ -1,0 +1,14 @@
+// Estilo para o botão de voltar
+.buttonBack {
+  background-color: #1890ff; // Define a cor de fundo azul para o botão
+  color: white; // Define a cor do texto como branca
+  padding: 10px 20px; // Define o espaçamento interno (padding) do botão, 10px vertical e 20px horizontal
+  border: none; // Remove a borda do botão
+  border-radius: 5px; // Adiciona bordas arredondadas ao botão com raio de 5px
+  cursor: pointer; // Muda o cursor para "pointer" ao passar o mouse sobre o botão, indicando que é clicável
+
+  // Estilo para quando o botão é "hovered" (quando o usuário passa o mouse sobre ele)
+  &:hover {
+    background-color: #40a9ff; // Altera a cor de fundo para um azul mais claro (#40a9ff) quando o botão é "hovered"
+  }
+}

@@ -5,7 +5,7 @@
     "moduleResolution": "Node",
     //"module": "CommonJS",
     //"moduleResolution": "node",
-    "outDir": "./dist", // Não será necessário usar a pasta dist se não compilar manualmente
+    "outDir": "./dist",
     "rootDir": "./src", // Diretório de origem dos arquivos
     "esModuleInterop": true,
     "skipLibCheck": true,

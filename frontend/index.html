@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br"> <!-- Define o idioma da página como português brasileiro -->
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>React App</title>
+    <!-- Meta tags para otimização da página -->
+    <meta charset="UTF-8" /> <!-- Define o conjunto de caracteres para UTF-8 (caracteres especiais, acentuação, etc.) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- Garante que a página seja responsiva em diferentes dispositivos -->
+    <title>Sistema Pizzaria</title> <!-- Título da aba do navegador -->
+
+    <!-- Link para o favicon (ícone que aparece na aba do navegador) -->
+    <link rel="icon" href="./src/assets/pizza_1404945.png" type="image/png" />
+    <!-- O favicon é a imagem "pizza_1404945.png" localizada na pasta "assets" -->
   </head>
 
   <body>
+    <!-- O elemento com id="root" é onde o React irá renderizar a aplicação -->
     <div id="root"></div>
+
+    <!-- Script que carrega o arquivo "main.tsx", ponto de entrada da aplicação React -->
+    <!-- Ele usa "type='module'" para garantir que o arquivo será tratado como um módulo ES6 -->
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

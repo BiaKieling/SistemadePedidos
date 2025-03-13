@@ -1,6 +1,6 @@
 // router.tsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages/Home"; // Use a exportação nomeada
+import { Home } from "./pages/Home/Home"; // Importação nomeada
 import { OrdersList } from "./pages/OrdersPage/OrderList"; // Importação nomeada
 
 const router = createBrowserRouter([
