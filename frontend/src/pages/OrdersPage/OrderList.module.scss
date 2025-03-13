@@ -1,0 +1,44 @@
+.background {
+  background-image: url("../../assets/background.jpg"); // Caminho para a imagem
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.table {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.table :global(.ant-table-thead > tr > th) {
+  background-color: #1890ff; /* Azul do Ant Design */
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.table :global(.ant-table-tbody > tr > td) {
+  text-align: center;
+}
+
+// Estilos específicos para o botão
+.buttonBack {
+  margin-bottom: 20px; /* Espaço abaixo do botão */
+  background-color: #1890ff; /* Cor do botão (Ant Design Azul) */
+  border-color: #1890ff; /* Cor da borda */
+  color: white; /* Cor do texto */
+  font-weight: bold;
+  padding: 8px 16px; /* Tamanho do botão */
+  border-radius: 4px; /* Arredondamento dos cantos */
+  transition: background-color 0.3s, border-color 0.3s; /* Efeito de transição */
+
+  &:hover {
+    background-color: #40a9ff; /* Cor do botão ao passar o mouse */
+    border-color: #40a9ff; /* Cor da borda ao passar o mouse */
+  }
+}
