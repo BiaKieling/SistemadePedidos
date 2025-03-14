@@ -21,17 +21,3 @@ ordersRoutes.put("/:id/status", verifyStaticToken, ordersController.updateOrderS
 
 export { ordersRoutes };
 
-
-/*
-// src/routes/ordersRoutes.ts
-import { Router } from "express";
-import { ordersController } from "../controllers/ordersController"; // Usando a exportação correta
-import { verifyStaticToken } from "../middlewares/verifyStaticToken"; // Usando a exportação correta
-
-const ordersRoutes = Router();
-
-ordersRoutes.post("/", verifyStaticToken, ordersController.createOrder);
-ordersRoutes.get("/", verifyStaticToken, ordersController.getOrders);
-ordersRoutes.get("/:id", verifyStaticToken, ordersController.getOrderById);
-
-export { ordersRoutes };*/
