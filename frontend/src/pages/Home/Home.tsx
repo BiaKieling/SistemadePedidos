@@ -69,6 +69,13 @@ export const Home = () => {
               Ver Lista de Pedidos
             </Button>
           </Link>
+
+          {/* Link para navegar até a página GloboplayUsers */}
+          <Link to="/globoplay-users">
+            <Button type="default" block style={{ marginTop: "10px" }}>
+              Ver Usuários do Globoplay
+            </Button>
+          </Link>
         </Card>
       </Content>
     </Layout>

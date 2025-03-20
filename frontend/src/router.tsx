@@ -1,7 +1,8 @@
 // router.tsx
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./pages/Home/Home"; // Importação nomeada
-import { OrdersList } from "./pages/OrdersPage/OrderList"; // Importação nomeada
+import { Home } from "./pages/Home/Home";
+import { OrdersList } from "./pages/OrdersPage/OrderList";
+import GloboplayUsers from "./pages/GloboplayUsers"; // Importe a nova página
 
 const router = createBrowserRouter([
   {
@@ -11,6 +12,10 @@ const router = createBrowserRouter([
   {
     path: "/orders",
     element: <OrdersList />, // Página de lista de pedidos
+  },
+  {
+    path: "/globoplay-users",
+    element: <GloboplayUsers />, // Nova página para usuários do Globoplay
   },
 ]);
 

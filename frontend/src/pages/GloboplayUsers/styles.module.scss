@@ -1,0 +1,48 @@
+
+
+/* Usando a imagem como fundo */
+.pageContainer {
+    background-image: url(../../assets/fundovermelho.jpg);   // Definindo a imagem de fundo
+    background-size: cover;  // Fazendo com que a imagem cubra toda a área
+    background-position: center;  // Centralizando a imagem
+    padding: 20px;
+    border-radius: 8px;
+  }
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.ant-table {
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente para a tabela */
+  }
+  
+
+.ant-table {
+  margin-top: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.ant-table th {
+  background-color: #4caf50;
+  color: white;
+}
+
+.ant-table td {
+  font-size: 14px;
+  padding: 12px;
+}
+
+.ant-table-striped > tbody > tr:nth-child(odd) > td {
+  background-color: #f9f9f9;
+}
+
+.ant-pagination {
+  margin-top: 20px;
+}
