@@ -7,7 +7,6 @@ const database = {
   user: "root",
   password: "Bianca123@", //senha do banco
   database: "pizzaria", //nome do banco de dados
-  port: 3306,
 };
 
 const connect = async () => {

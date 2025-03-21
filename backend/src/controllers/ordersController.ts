@@ -13,7 +13,7 @@ import {
 export const getOrders = async (req: Request, res: Response): Promise<void> => {
   try {
     const result = await getOrdersDB();
-    res.send({ success: true, result });
+    res.send({ success: true, orders: result });
   } catch (error) {
     console.error(error);
     res.send({ success: false, message: "Erro ao obter pedidos" });
@@ -26,18 +26,28 @@ export const getOrderById = async (
   res: Response
 ): Promise<void> => {
   try {
+    // Verificar se o id é um número válido
     const { id } = req.params;
-    const order = await getOrderByIdDB(Number(id));
-
-    if (!order) {
-      res.send({ success: false, message: "Pedido não encontrado" });
+    if (isNaN(Number(id))) {
+      res.status(400).send({ success: false, message: "ID inválido" });
       return;
     }
 
-    res.send({ success: true, order });
+    // Obter o pedido pelo ID
+    const order = await getOrderByIdDB(Number(id));
+
+    // Verificar se o pedido foi encontrado
+    if (order.length === 0) {
+      res
+        .status(404)
+        .send({ success: false, message: "Pedido não encontrado" });
+      return;
+    }
+
+    res.status(200).send({ success: true, order: order[0] });
   } catch (error) {
     console.error(error);
-    res.send({ success: false, message: "Erro ao obter pedido" });
+    res.status(500).send({ success: false, message: "Erro ao obter pedido" });
   }
 };
 
@@ -83,15 +93,15 @@ export const updateOrderStatus = async (
   res: Response
 ): Promise<void> => {
   const { id } = req.params;
-  const { status } = req.body;
+  const { status_id } = req.body;
 
-  if (!status) {
+  if (!status_id) {
     res.send({ success: false, message: "Status é obrigatório" });
     return;
   }
 
   try {
-    const updatedOrder = await updateOrderStatusDB(Number(id), status);
+    const updatedOrder = await updateOrderStatusDB(Number(id), status_id);
     res.send({ success: true, updated_id: updatedOrder });
   } catch (error) {
     console.error(error);

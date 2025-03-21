@@ -4,6 +4,12 @@ html, body {
   margin: 0;    /* Remover margens */
 }
 
+/* Estilo para o botão de navegação para a Home */
+.buttonContainer {
+  margin-top: 20px; /* Adiciona um espaçamento acima do botão */
+  margin-bottom: 20px; /* Adiciona um espaçamento abaixo do botão */
+}
+
 .pageContainer {
   background-image: url(../../assets/fundovermelho.jpg); /* Caminho para a imagem */
   background-size: cover; /* Fazendo com que a imagem cubra toda a área */
@@ -18,41 +24,49 @@ html, body {
 }
 
 h1 {
-  font-size: 24px;
+  font-size: 28px;
   margin-bottom: 20px;
   color: #ffffff; /* Cor do texto */
   text-align: center; /* Alinha o título ao centro */
 }
 
 /* Estilo para a tabela */
-.ant-table {
+:global(.ant-table) {
   margin-top: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: rgba(255, 255, 255, 0.8); /* Fundo semitransparente para a tabela */
+  border-radius: 12px; /* Bordas mais arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destacar */
+  background-color: #f7f7f7; /* Altere para o fundo desejado */
   width: 100%; /* Faz a tabela ocupar 100% da largura disponível */
   max-width: 1200px; /* Limita a largura da tabela a 1200px */
   margin-bottom: 20px;
+  overflow-x: auto; /* Permite rolar horizontalmente em telas menores */
 }
 
 /* Coloração do cabeçalho da tabela */
-.ant-table th {
-  background-color: #ff1100;
-  color: rgb(233, 114, 114);
+:global(.ant-table-thead > tr > th) {
+  background-color: #ff1100 !important; /* Cor vermelha para o cabeçalho */
+  color: white !important; /* Cor do texto em branco */
+  text-align: center; /* Centraliza o texto */
+  padding: 16px 12px; /* Ajuste no padding */
+  font-weight: bold; /* Deixa o texto mais em negrito */
 }
 
 /* Estilizando as células da tabela */
-.ant-table td {
+:global(.ant-table-tbody > tr > td) {
   font-size: 14px;
   padding: 12px;
+  text-align: center;
+  background-color: #ffffff; /* Cor do fundo das células */
 }
 
 /* Estilo para as linhas alternadas da tabela */
-.ant-table-striped > tbody > tr:nth-child(odd) > td {
-  background-color: #f9f9f9;
+:global(.ant-table-tbody > tr:nth-child(odd) > td) {
+  background-color: #f9f9f9; /* Cor para linhas alternadas */
 }
 
 /* Estilo para a paginação */
-.ant-pagination {
+:global(.ant-pagination) {
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }

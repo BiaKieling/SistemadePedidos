@@ -1,7 +1,7 @@
 // src/types.ts
 export interface Order {
-  id: number; 
+  id: number;
   cliente: string;
   sabor: string;
-  status: string;
+  status_id: number;
 }

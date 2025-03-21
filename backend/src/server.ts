@@ -25,7 +25,7 @@ app.use(express.json());
 })();
 
 // Usar as rotas
-app.use("/api", routes);
+app.use(routes);
 
 // Iniciar o servidor HTTP
 app.listen(PORT, () => {

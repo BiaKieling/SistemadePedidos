@@ -9,24 +9,22 @@ import {
   updateOrderStatus,
 } from "../controllers/ordersController";
 
-import { verifyStaticToken } from "../middlewares/verifyStaticToken";  // Importando o middleware
-//import { getOrders } from "../database/orders";
-//import { getOrderById, ordersController } from "../controllers/ordersController";
+import { verifyToken } from "../middlewares/verifyToken"; // Importando o middleware
 
 const ordersRoutes = Router();
 
 // Criar um pedido (necessário autenticação)
-ordersRoutes.post("/", verifyStaticToken, createOrder);  
+ordersRoutes.post("/orders", verifyToken, createOrder);
 
 // Listar todos os pedidos (pode exigir autenticação dependendo da sua lógica)
-ordersRoutes.get("/", verifyStaticToken, getOrders);  
+ordersRoutes.get("/orders", verifyToken, getOrders);
 
 // Obter um pedido específico por ID (necessário autenticação)
-ordersRoutes.get("/:id", verifyStaticToken, getOrderById);  
+ordersRoutes.get("/orders/:id", verifyToken, getOrderById);
 
 // Remover um pedido por ID (necessário autenticação)
-ordersRoutes.delete("/:id", verifyStaticToken, deleteOrder);  
+ordersRoutes.delete("/orders/:id", verifyToken, deleteOrder);
 // Atualizar status do pedido (necessário autenticação)
-ordersRoutes.put("/:id", verifyStaticToken, updateOrderStatus);  
+ordersRoutes.put("/orders/:id/status_id", verifyToken, updateOrderStatus); //orders/:id/status  estava
 
 export default ordersRoutes;
