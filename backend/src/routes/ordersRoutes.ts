@@ -1,23 +1,32 @@
+//o routes importa as rotas que estãos no controllers
+
 import { Router } from "express";
-import { ordersController } from "../controllers/ordersController"; // Usando a exportação correta
-import { verifyStaticToken } from "../middlewares/verifyStaticToken"; // Usando a exportação correta
+import {
+  createOrder,
+  getOrderById,
+  getOrders,
+  deleteOrder,
+  updateOrderStatus,
+} from "../controllers/ordersController";
+
+import { verifyStaticToken } from "../middlewares/verifyStaticToken";  // Importando o middleware
+//import { getOrders } from "../database/orders";
+//import { getOrderById, ordersController } from "../controllers/ordersController";
 
 const ordersRoutes = Router();
 
-// Rota para criar um pedido
-ordersRoutes.post("/", verifyStaticToken, ordersController.createOrder);
+// Criar um pedido (necessário autenticação)
+ordersRoutes.post("/", verifyStaticToken, createOrder);  
 
-// Rota para obter todos os pedidos
-ordersRoutes.get("/", verifyStaticToken, ordersController.getOrders);
+// Listar todos os pedidos (pode exigir autenticação dependendo da sua lógica)
+ordersRoutes.get("/", verifyStaticToken, getOrders);  
 
-// Rota para obter um pedido específico
-ordersRoutes.get("/:id", verifyStaticToken, ordersController.getOrderById);
+// Obter um pedido específico por ID (necessário autenticação)
+ordersRoutes.get("/:id", verifyStaticToken, getOrderById);  
 
-// Rota para remover um pedido
-ordersRoutes.delete("/:id", verifyStaticToken, ordersController.deleteOrder);
+// Remover um pedido por ID (necessário autenticação)
+ordersRoutes.delete("/:id", verifyStaticToken, deleteOrder);  
+// Atualizar status do pedido (necessário autenticação)
+ordersRoutes.put("/:id", verifyStaticToken, updateOrderStatus);  
 
-// Rota para atualizar o status de um pedido
-ordersRoutes.put("/:id/status", verifyStaticToken, ordersController.updateOrderStatus);
-
-export { ordersRoutes };
-
+export default ordersRoutes;

@@ -1,41 +1,35 @@
-// Importa as dependências necessárias
-import express from "express"; // Framework para construção de APIs
-import cors from "cors"; // Middleware para permitir requisições entre diferentes origens (CORS)
-import dotenv from "dotenv"; // Biblioteca para gerenciar variáveis de ambiente
-import { ordersRoutes } from "./routes/ordersRoutes"; // Roteador de pedidos
-import { sequelize } from "./database/configDB"; // Importa a configuração do Sequelize (instância do banco de dados)
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import connect from "./database/config/_configDB"; // Importando a conexão do banco
+import routes from "./routes/ordersRoutes"; // Importando as rotas
 
-// Carrega as variáveis de ambiente a partir do arquivo .env
+// Carregar variáveis de ambiente
 dotenv.config();
 
-// Cria uma instância do Express para criar o servidor
 const app = express();
-// Define a porta para o servidor. Se a variável de ambiente PORT não estiver definida, será usada a porta 3000
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
-// Middlewares
-app.use(cors()); // Permite requisições de diferentes origens
-app.use(express.json()); // Middleware para interpretar o corpo das requisições como JSON
+// Middleware
+app.use(cors());
+app.use(express.json());
 
-// Usa as rotas para pedidos. Define que qualquer requisição para '/orders' será tratada pelas routes em 'ordersRoutes'
-app.use("/orders", ordersRoutes);
+// Teste de conexão com o banco
+(async () => {
+  try {
+    const connection = await connect(); // Obtém conexão do `configDB.ts`
+    console.log("✅ Conectado ao MySQL com sucesso!");
+  } catch (error) {
+    console.error("❌ Erro ao conectar ao MySQL:", error);
+  }
+})();
 
-// Sincroniza o banco de dados antes de iniciar o servidor
-sequelize
-  .sync({ alter: true }) // O método 'sync' garante que o banco de dados está sincronizado. 'alter' faz a atualização da estrutura do banco se necessário.
-  .then(() => {
-    // Condicional para garantir que o servidor só será iniciado em ambientes não de teste
-    if (process.env.NODE_ENV !== "test") {
-      // Inicia o servidor na porta configurada
-      app.listen(port, () => {
-        console.log(`Servidor rodando na porta ${port}`);
-      });
-    }
-  })
-  .catch((error: Error) => {
-    // Caso haja algum erro ao sincronizar o banco de dados, exibe a mensagem de erro
-    console.error("Erro ao sincronizar o banco de dados:", error);
-  });
+// Usar as rotas
+app.use("/api", routes);
 
-// Exporta o app para ser utilizado em testes (caso seja necessário fazer testes unitários ou integração)
+// Iniciar o servidor HTTP
+app.listen(PORT, () => {
+  console.log(`🚀 Servidor rodando na porta ${PORT}`);
+});
+
 export { app };

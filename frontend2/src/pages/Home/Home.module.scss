@@ -1,0 +1,38 @@
+// Estilo para a seção de fundo
+.background {
+  // Definindo a imagem de fundo
+  background-image: url("../../assets/background.jpg"); // Caminho para a imagem
+  // Ajuste a imagem para cobrir todo o fundo
+  background-size: cover;
+  // Centraliza a imagem de fundo
+  background-position: center;
+  // Impede que a imagem de fundo se repita
+  background-repeat: no-repeat;
+  // Garante que a altura mínima seja igual à altura da tela
+  min-height: 100vh;
+  // Utiliza flexbox para centralizar o conteúdo da tela
+  display: flex;
+  justify-content: center; // Alinha o conteúdo horizontalmente no centro
+  align-items: center; // Alinha o conteúdo verticalmente no centro
+}
+
+// Estilo para o container, que também usa flexbox
+.container {
+  // Usando flexbox para centralizar os elementos dentro do container
+  display: flex;
+  justify-content: center; // Alinha o conteúdo horizontalmente
+  align-items: center; // Alinha o conteúdo verticalmente
+  width: 100%; // Garante que o container ocupe toda a largura disponível
+}
+
+// Estilo para o card
+.card {
+  // Define a largura do card
+  width: 400px;
+  // Cor de fundo do card com um leve efeito de transparência (rgba)
+  background: rgba(255, 255, 255, 0.9);
+  // Bordas arredondadas para o card
+  border-radius: 10px;
+  // Adiciona uma sombra leve ao card
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,60 @@
+/* Estilo de fundo da página (background) */
+.background {
+  background-image: url("../../assets/background.jpg"); /* Caminho para a imagem de fundo */
+  background-size: cover; /* Faz a imagem de fundo cobrir toda a área disponível */
+  background-position: center; /* A imagem ficará centralizada na tela */
+  background-repeat: no-repeat; /* Impede que a imagem se repita */
+  min-height: 100vh; /* Garante que a altura mínima da tela seja de 100% da altura da janela */
+  display: flex; /* Utiliza flexbox para alinhar os itens */
+  flex-direction: column; /* Organiza os itens na vertical */
+  justify-content: flex-start; /* Alinha os itens no topo */
+  align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+/* Estilo para o título */
+.title {
+  align-self: flex-start; /* Alinha o título à esquerda */
+  margin: 20px; /* Espaço ao redor do título */
+  font-size: 24px; /* Tamanho da fonte */
+  font-weight: bold; /* Deixa o título em negrito */
+  color: #ff18cd; /* Cor do título */
+}
+
+/* Estilo para a tabela */
+.table {
+  width: 80%; /* Define um tamanho fixo para a tabela (80% da largura do container) */
+  max-width: 1000px; /* Limita a largura máxima da tabela */
+  border-radius: 8px; /* Cantos arredondados na tabela */
+  overflow: hidden; /* Impede que os itens da tabela ultrapassem os limites da borda arredondada */
+  margin-top: 20px; /* Espaço entre o título e a tabela */
+}
+
+/* Estilos para o cabeçalho da tabela (ant-table-thead) */
+.table :global(.ant-table-thead > tr > th) {
+  background-color: #ff18cd; /* Cor de fundo do cabeçalho */
+  color: white; /* Texto branco */
+  font-weight: bold; /* Texto em negrito */
+  text-align: center; /* Alinha o texto no centro das células de cabeçalho */
+}
+
+/* Estilos para as células do corpo da tabela (ant-table-tbody) */
+.table :global(.ant-table-tbody > tr > td) {
+  text-align: center; /* Alinha o texto das células no centro */
+}
+
+/* Estilos específicos para o botão de voltar */
+.buttonBack {
+  margin-top: 20px; /* Espaço entre a tabela e o botão */
+  background-color: #1890ff; /* Cor de fundo do botão (azul Ant Design) */
+  border-color: #1890ff; /* Cor da borda do botão */
+  color: white; /* Cor do texto do botão */
+  font-weight: bold; /* Texto em negrito */
+  padding: 8px 16px; /* Tamanho do botão */
+  border-radius: 4px; /* Bordas arredondadas */
+  transition: background-color 0.3s, border-color 0.3s; /* Transição suave ao passar o mouse sobre o botão */
+
+  &:hover {
+    background-color: #40a9ff; /* Cor de fundo ao passar o mouse */
+    border-color: #40a9ff; /* Cor da borda ao passar o mouse */
+  }
+}
